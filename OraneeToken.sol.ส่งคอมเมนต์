@@ -3,11 +3,11 @@ pragma solidity ^0.4.24;		//เวอร์ชั่น
 // ----------------------------------------------------------------------------
 // Sample token contract			//ไฟล์ตัวอย่าง
 //
-// Symbol        : {{ETH}}   			 //สัญลักษณ์ เหรียญ
-// Name          : {{ETH Token}} 		 //ชื่อเหรียญ
+// Symbol        : {{kkk}}   			 //สัญลักษณ์ เหรียญ
+// Name          : {{kkk Token}} 		 //ชื่อเหรียญ
 // Total supply  : {{1xxxxxxxx}} 	//จำนวนเหรียญ
 // Decimals      : {{4}}			//ทศนิยมเหรียญ
-// Owner Account : {{0xDa4177911EbD7ff5A1c9014D791b48ef72563F79}} // แอดเค้ากระเป๋าเงินใน MateMask
+// Owner Account : {{0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0}} // แอดเค้ากระเป๋าเงินใน MateMask
 //
 // Enjoy.    
 //	ornee								//ใส่ชื่อเราเพื่อไม่ให้เพื่อนก็อป
@@ -84,12 +84,12 @@ contract TSCToken is ERC20Interface, SafeMath {	//เริ่มสร้าง
     // Constructor
     // ------------------------------------------------------------------------
     constructor() public {
-        symbol = "ETH";         //สัญลักษณ์ เหรียญ
-        name = "ETH Token";     //ชื่อเหรียญ
+        symbol = "kkk";         //สัญลักษณ์ เหรียญ
+        name = "kkk Token";     //ชื่อเหรียญ
         decimals = 4;           //ทศนิยมเหรียญ
         _totalSupply = 100000000;    //จำนวนเหรียญ
-        balances[0xDa4177911EbD7ff5A1c9014D791b48ef72563F79] = _totalSupply;
-        emit Transfer(address(0), 0xDa4177911EbD7ff5A1c9014D791b48ef72563F79, _totalSupply);   
+        balances[0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0] = _totalSupply;
+        emit Transfer(address(0), 0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0, _totalSupply);   
     }
 
 
