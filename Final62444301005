@@ -1,17 +1,17 @@
-pragma solidity ^0.4.24;		//เวอร์ชั่น
+pragma solidity ^0.4.24;	
 
 // ----------------------------------------------------------------------------
-// Sample token contract			//ไฟล์ตัวอย่าง
+// Sample token contract			
 //
-// Symbol        : {{ORN}}   			 //สัญลักษณ์ เหรียญ
-// Name          : {{ORN Token}} 		 //ชื่อเหรียญ
-// Total supply  : {{1000000000}} 	//จำนวนเหรียญ
-// Decimals      : {{8}}			//ทศนิยมเหรียญ
-// Owner Account : {{0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0}} // แอดเค้ากระเป๋าเงินใน MateMask
+// Symbol        : {{ORN}}   			 
+// Name          : {{ORN Token}} 		 
+// Total supply  : {{1000000000}} 
+// Decimals      : {{8}}			
+// Owner Account : {{0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0}} 
 //
 // Enjoy.    
-//	ornee								//ใส่ชื่อเราเพื่อไม่ให้เพื่อนก็อป
-// (c) by Juan Cruz Martinez 2020. MIT Licence.		//คนสร้างโค้ด
+//	ornee								
+// (c) by Juan Cruz Martinez 2020. MIT Licence.		
 // ----------------------------------------------------------------------------
 
 
@@ -47,12 +47,12 @@ ERC Token Standard #20 Interface
 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
 */
 contract ERC20Interface {
-    function totalSupply() public constant returns (uint);    		//supply คือจำนวนเหรียญ
+    function totalSupply() public constant returns (uint);    		
     function balanceOf(address tokenOwner) public constant returns (uint balance);
-    function allowance(address tokenOwner, address spender) public constant returns (uint remaining); //เจ้าของเหรียญ และถูกส่งไปไหน
-    function transfer(address to, uint tokens) public returns (bool success); 	//
-    function approve(address spender, uint tokens) public returns (bool success);	//การทำงาน
-    function transferFrom(address from, address to, uint tokens) public returns (bool success); //ส่งจากแอดเดทไหน
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining); 
+    function transfer(address to, uint tokens) public returns (bool success); 	
+    function approve(address spender, uint tokens) public returns (bool success);	
+    function transferFrom(address from, address to, uint tokens) public returns (bool success); 
 
     event Transfer(address indexed from, address indexed to, uint tokens);
     event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
@@ -70,11 +70,11 @@ contract ApproveAndCallFallBack {
 /**
 ERC20 Token, with the addition of symbol, name and decimals and assisted token transfers
 */
-contract TSCToken is ERC20Interface, SafeMath {	//เริ่มสร้างเหรียญ(ERC20Interface ใช้ คอนเทค ที่49)
-    string public symbol;				//เหรียญที่เราจะสร้าง
-    string public  name;				//เหรียญที่เราจะสร้าง
-    uint8 public decimals;				//เหรียญที่เราจะสร้าง
-    uint public _totalSupply;				//เหรียญที่เราจะสร้าง
+contract TSCToken is ERC20Interface, SafeMath {	
+    string public symbol;				
+    string public  name;				
+    uint8 public decimals;				
+    uint public _totalSupply;				
 
     mapping(address => uint) balances;		
     mapping(address => mapping(address => uint)) allowed;
@@ -84,10 +84,10 @@ contract TSCToken is ERC20Interface, SafeMath {	//เริ่มสร้าง
     // Constructor
     // ------------------------------------------------------------------------
     constructor() public {
-        symbol = "ORN";         //สัญลักษณ์ เหรียญ
-        name = "ORN Token";     //ชื่อเหรียญ
-        decimals = 8;           //ทศนิยมเหรียญ
-        _totalSupply = 1000000000;    //จำนวนเหรียญ
+        symbol = "ORN";         
+        name = "ORN Token";    
+        decimals = 8;          
+        _totalSupply = 1000000000;    
         balances[0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0] = _totalSupply;
         emit Transfer(address(0), 0x65306Ef0E7b759eE24E4E4097527CDA4D9eA0Bc0, _totalSupply);   
     }
@@ -116,7 +116,7 @@ contract TSCToken is ERC20Interface, SafeMath {	//เริ่มสร้าง
     // ------------------------------------------------------------------------
     function transfer(address to, uint tokens) public returns (bool success) {
         balances[msg.sender] = safeSub(balances[msg.sender], tokens);
-        balances[to] = safeAdd(balances[to], tokens);  //มีจำนวนเหรียญเท่าไหร่
+        balances[to] = safeAdd(balances[to], tokens); 
         emit Transfer(msg.sender, to, tokens);
         return true;
     }
